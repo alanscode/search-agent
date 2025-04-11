@@ -24,7 +24,7 @@ if not FIRECRAWL_API_KEY:
 firecrawl_mcp_command_args = ["/c", "npx", "-y", "firecrawl-mcp"]
 firecrawl_mcp_env = {"FIRECRAWL_API_KEY": FIRECRAWL_API_KEY} if FIRECRAWL_API_KEY else {}
 firecrawl_server = MCPServerStdio(
-    command="cmd", # Set command to "cmd"
+    command='cmd', # Set command to "cmd"
     args=firecrawl_mcp_command_args,
     env=firecrawl_mcp_env
 )
@@ -194,7 +194,7 @@ async def handle_scrape(request: ScrapeRequest):
     try:
         # Construct the instruction for the agent
         # Make it clear we want the content from the specific URL using the tool
-        scrape_instruction = f"Please scrape the content of the website at the URL '{request.url}' using the 'scrape_website' tool and return the raw scraped content."
+        scrape_instruction = f"Please scrape the content of the website at the URL '{request.url}' using the tool and return the raw scraped content."
         print(f"Running agent with instruction: \"{scrape_instruction}\"")
 
         # Use agent.run - this will manage MCP server lifecycle if the tool is called
